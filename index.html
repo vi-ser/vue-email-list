@@ -24,8 +24,8 @@
         </h1>
 
         <ul>
-            <li class="list-unstyled border border-secondary p-3 ">
-                {{email}}
+            <li v-for="currentEmail in emails" class="list-unstyled border border-secondary p-3 mb-0">
+                {{currentEmail}}
             </li>
         </ul>
 
