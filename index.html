@@ -17,14 +17,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 
 
-    <div id="app" class="container py-5">
+    <div id="app" class="container py-5 d-flex flex-column justify-content-center">
 
         <h1 class="text-center mb-5">
             Lista Email Random
         </h1>
 
-        <ul>
-            <li v-for="currentEmail in emails" class="list-unstyled border border-secondary p-3 mb-0">
+        <ul class="p-0 border border-primary rounded-2">
+            <li v-for="currentEmail, index in emails" class="list-unstyled p-3"
+                :class=" index % 2 == 0 ? 'bg-body-secondary' : 'bg-white', index == 0 ? 'rounded-top-2' : '', index == (emails.length - 1) ? 'rounded-bottom-2' : '' ">
                 {{currentEmail}}
             </li>
         </ul>
