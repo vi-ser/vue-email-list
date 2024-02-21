@@ -23,7 +23,7 @@
             Lista Email Random
         </h1>
 
-        <ul class="p-0 border border-primary rounded-2">
+        <ul v-show="listNumber === emails.length" class="p-0 border border-primary rounded-2">
             <li v-for="currentEmail, index in emails" class="list-unstyled p-3"
                 :class=" index % 2 == 0 ? 'bg-body-secondary' : 'bg-white', index == 0 ? 'rounded-top-2' : '', index == (emails.length - 1) ? 'rounded-bottom-2' : '' ">
                 {{currentEmail}}

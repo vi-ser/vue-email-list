@@ -11,6 +11,8 @@ createApp({
 
             emails: [],
 
+            listNumber: 0,
+
 
         }
     },
@@ -18,17 +20,24 @@ createApp({
 
     // al caricamento della pagina:
     mounted() {
+        // memorizzo le richieste in un array
+        const requests = [];
 
+        // memorizzo le chiamate API nell'array 'requests'
         for (let i = 0; i < 10; i++) {
-
-            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
-
-
-                this.randomEmail = response.data.response;
-                this.emails.push(this.randomEmail)
-            });
+            requests.push(
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
+                    this.emails.push(response.data.response);
+                })
+            );
         }
-        // console.log(this.emails)
+
+        // attendo il completamento di tutte le promesse (chiesto aiuto a ChatGpt)
+        Promise.all(requests).then(() => {
+
+            this.listNumber = this.emails.length;
+
+        })
     }
 
 }).mount('#app');
