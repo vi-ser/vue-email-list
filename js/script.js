@@ -11,8 +11,6 @@ createApp({
 
             emails: [],
 
-            listNumber: 0,
-
 
         }
     },
@@ -32,12 +30,6 @@ createApp({
             );
         }
 
-        // attendo il completamento di tutte le promesse (chiesto aiuto a ChatGpt)
-        Promise.all(requests).then(() => {
-
-            this.listNumber = this.emails.length;
-
-        })
     }
 
 }).mount('#app');
